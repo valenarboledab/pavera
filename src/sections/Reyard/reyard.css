@@ -1,0 +1,97 @@
+/*
+ * Reyard footer tokens and its hand-written classes.
+ *
+ * @import this from the stylesheet that already holds `@import "tailwindcss"`.
+ * Every token is namespaced `reyard-` so it adds utilities alongside the
+ * host's own theme instead of redefining `sky`, `font-display` or `text-link`.
+ */
+@theme {
+  /* Sampled from the top of the desert film's sky. */
+  --color-reyard-sky: #1653be;
+  --color-reyard-sky-mid: #266bd0;
+
+  --font-reyard-display: 'Satoshi', 'Inter', system-ui, sans-serif;
+  --font-reyard-text: 'Inter', system-ui, sans-serif;
+
+  /* Sizes are set for a 2000px-wide footer, then clamp. */
+  --text-reyard-mark: clamp(1.35rem, 1.5vw, 2rem);
+  --text-reyard-mark--line-height: 1;
+  --text-reyard-mark--letter-spacing: 0.01em;
+  --text-reyard-blurb: clamp(1.05rem, 1.2vw, 1.6rem);
+  --text-reyard-blurb--line-height: 1.6;
+  --text-reyard-blurb--letter-spacing: -0.012em;
+  --text-reyard-head: clamp(1rem, 1.06vw, 1.4rem);
+  --text-reyard-head--line-height: 1.2;
+  --text-reyard-head--letter-spacing: -0.01em;
+  --text-reyard-link: clamp(0.98rem, 1.06vw, 1.4rem);
+  --text-reyard-link--line-height: 1.2;
+  --text-reyard-link--letter-spacing: -0.008em;
+  --text-reyard-note: clamp(0.92rem, 0.95vw, 1.25rem);
+  --text-reyard-note--line-height: 1;
+  --text-reyard-note--letter-spacing: -0.01em;
+}
+
+@layer components {
+  /* The footer carries its own type and selection, so it looks the same on any page. */
+  .reyard-footer {
+    font-family: var(--font-reyard-text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .reyard-footer ::selection {
+    background: #fff;
+    color: var(--color-reyard-sky);
+  }
+
+  /* Rises in once the footer is first seen. */
+  .reyard-rise {
+    opacity: 0;
+    translate: 0 14px;
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s),
+      translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s);
+  }
+  .reyard-footer[data-in] .reyard-rise {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  /* Underline draws in from the left. */
+  .reyard-ink-link {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    padding-bottom: 2px;
+    color: rgb(255 255 255 / 0.86);
+    transition:
+      background-size 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      color 0.3s;
+  }
+  .reyard-ink-link:hover,
+  .reyard-ink-link:focus-visible {
+    background-size: 100% 1px;
+    color: #fff;
+    outline: none;
+  }
+
+  /* The scene is 16:9 with the horizon at ~68%. On lg+ it fills the footer;
+     below lg it sits under the stacked links and fades up into the sky. */
+  .reyard-scene {
+    aspect-ratio: 16 / 9;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+  }
+  @media (min-width: 64rem) {
+    .reyard-scene {
+      aspect-ratio: auto;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reyard-rise {
+    transition: none;
+    opacity: 1;
+    translate: none;
+  }
+}

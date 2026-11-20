@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "./sections/Reyard/reyard.css";
+
+@theme {
+  --color-pavera-sand: #e2893b;
+  --color-pavera-asphalt: #23252b;
+  --color-pavera-soft: #f2f5fb;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: #16181d; background: #fff; -webkit-font-smoothing: antialiased; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
