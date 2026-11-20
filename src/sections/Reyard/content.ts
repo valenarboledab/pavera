@@ -5,8 +5,8 @@ export const brand = {
 };
 
 // A 17.5 s ping-pong loop of a locked-off shot; the poster is its first frame.
-export const VIDEO_SRC = '/reyard/desert.mp4';
-export const POSTER_SRC = '/reyard/desert-poster.jpg';
+export const VIDEO_SRC = `${import.meta.env.BASE_URL}reyard/desert.mp4`;
+export const POSTER_SRC = `${import.meta.env.BASE_URL}reyard/desert-poster.jpg`;
 
 export const socials = [
   {label: 'Facebook', icon: 'facebook'},

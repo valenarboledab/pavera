@@ -15,7 +15,7 @@ Sitio en Vite + React 19 + TypeScript + Tailwind CSS v4, con el footer "Marble D
    La primera vez, `npm run dev` descarga el video del desierto a `public/reyard/`.
    Abre la dirección que aparece (normalmente http://localhost:5173).
 
-3. Para publicarlo: `npm run build` y sube la carpeta `dist/` (o conecta la carpeta a Vercel o Netlify).
+3. Publicación: cada `git push` a `main` publica el sitio en GitHub Pages: https://valenarboledab.github.io/pavera/
 
 ## Dónde se cambian las cosas
 
