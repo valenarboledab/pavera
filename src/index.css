@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./sections/Reyard/reyard.css";
+@import "./sections/SmallMachines/small-machines.css";
 @import "./styles/section-tokens.css";
 
 @theme {

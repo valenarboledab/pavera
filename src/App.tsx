@@ -1,6 +1,7 @@
 import {Hero, Stats, Services, Process, Projects, Quote} from './sections/Pavera/Sections';
 import {ReyardFooter} from './sections/Reyard/ReyardFooter';
 import DuneSixteen from './sections/DuneSixteen/DuneSixteen';
+import ContactSection from './sections/SmallMachines/ContactSection';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Projects />
         <DuneSixteen />
         <Quote />
+        <ContactSection />
       </main>
       <ReyardFooter />
     </>
