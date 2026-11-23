@@ -31,7 +31,7 @@ export function Hero() {
           aria-hidden="true"
           className="absolute inset-0 size-full object-cover object-bottom"
         />
-        <div className="absolute inset-x-0 top-0 hidden h-2/3 bg-linear-to-b from-reyard-sky/70 to-transparent lg:block" />
+        <div className="absolute inset-x-0 top-0 hidden h-1/2 bg-linear-to-b from-reyard-sky/60 to-transparent lg:block" />
       </div>
 
       <nav aria-label="Principal" className="flex flex-wrap items-center justify-between gap-4 px-[max(5vw,16px)] py-5">
@@ -49,12 +49,12 @@ export function Hero() {
         <a href="#cotizar" className={`${btn} bg-white/25 backdrop-blur-sm`}>Pedir cotización</a>
       </nav>
 
-      <div className={`${wrap} relative z-10 w-full px-[max(5vw,16px)] pt-[clamp(32px,10vh,120px)]`}>
-        <h1 className={`${display} max-w-[14ch] text-[clamp(40px,5.6vw,76px)]`}>Pavimentos que duran más que la obra</h1>
-        <p className="mt-5 mb-8 max-w-[44ch] text-[clamp(17px,1.4vw,20px)] text-white/90">
+      <div className={`${wrap} relative z-10 w-full px-[max(5vw,16px)] pt-[clamp(32px,10vh,120px)] lg:pt-[5vh] lg:text-center`}>
+        <h1 className={`${display} max-w-[14ch] text-[clamp(40px,5.6vw,76px)] lg:mx-auto lg:max-w-[20ch] lg:text-[clamp(44px,4.2vw,68px)]`}>Pavimentos que duran más que la obra</h1>
+        <p className="mt-5 mb-8 max-w-[44ch] text-[clamp(17px,1.4vw,20px)] text-white/90 lg:mx-auto lg:max-w-[56ch]">
           Asfalto, concreto y adoquín para entradas, parqueaderos, vías privadas y plazas. Diseñamos la estructura, la construimos y la mantenemos.
         </p>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 lg:justify-center">
           <a href="#cotizar" className={`${btn} bg-white text-reyard-sky`}>Calcular mi proyecto</a>
           <a href="#servicios" className={`${btn} bg-white/25 backdrop-blur-sm`}>Ver servicios</a>
         </div>
