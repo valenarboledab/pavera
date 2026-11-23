@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./sections/Reyard/reyard.css";
+@import "./styles/section-tokens.css";
 
 @theme {
   --color-pavera-sand: #e2893b;

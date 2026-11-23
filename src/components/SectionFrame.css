@@ -1,0 +1,56 @@
+.frame {
+  position: relative;
+  width: 100%;
+  /* Height comes from the design canvas's own ratio, so the block reserves the
+     right space before any JavaScript runs. */
+  aspect-ratio: 1600 / 900;
+  overflow: hidden;
+}
+
+.frame__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Top-left rather than center: the canvas is scaled down from the container's
+     own origin, so no translate is needed to keep it registered to the corner. */
+  transform-origin: top left;
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------------
+   What the frame guarantees its children.
+
+   The sections are authored in absolute pixels against a page whose
+   global stylesheet already set these. Dropped into a project that
+   has not, a content-box layout overflows the canvas and the form
+   controls fall back to the browser's own font — so the frame states
+   them itself rather than depending on a host stylesheet it does not
+   ship and must not overwrite.
+
+   Every selector is scoped under `.frame`, so none of this reaches
+   anything outside the section. The scope is written `:where(.frame)`
+   so it contributes NO specificity: these have to land exactly where
+   a global `*` and `button` rule would, or they outrank the sections'
+   own single-class rules and silently restyle their controls.
+---------------------------------------------------------------- */
+
+:where(.frame),
+:where(.frame) *,
+:where(.frame) *::before,
+:where(.frame) *::after {
+  box-sizing: border-box;
+}
+
+:where(.frame) {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  color: var(--ink);
+}
+
+:where(.frame) button,
+:where(.frame) input,
+:where(.frame) select,
+:where(.frame) textarea {
+  font: inherit;
+  color: inherit;
+}

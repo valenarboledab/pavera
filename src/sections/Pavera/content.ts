@@ -1,4 +1,4 @@
-// Todos los textos y precios de las secciones de Pavera. Cámbialos aquí sin tocar el diseño.
+// Todos los textos y precios de las secciones de Arango Lands. Cámbialos aquí sin tocar el diseño.
 
 export const nav = [
   ['Servicios', '#servicios'],

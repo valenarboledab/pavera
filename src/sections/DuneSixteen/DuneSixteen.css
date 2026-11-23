@@ -1,0 +1,255 @@
+/* ---------------------------------------------------------------
+   DuneSixteen — white footer card floating over an orange dune field.
+   Authored on the 1600x900 canvas.
+--------------------------------------------------------------- */
+
+.d16 {
+  /* Front-plane placement. Zoom grows the cutout from its bottom edge so
+     the crest climbs over the card; drop slides the whole thing down.
+     --dune-height is an absolute size on the 1600x900 canvas, so resizing the
+     scene box no longer changes how far the crest rides up the card. */
+  --dune-drop: 80px;
+  --dune-height: 752px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------------
+   Three depth planes: the scene pushed in behind, the card, then the
+   near dunes back on top so the card sits *in* the landscape rather
+   than on it. Same file in both planes — one request, cached once.
+--------------------------------------------------------------- */
+
+.d16__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background: #f6f6f6;
+}
+
+.d16__front {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* The cutout's own alpha is the mask, so the dune silhouette overlaps the
+   card instead of a rectangle. Scaling from the bottom edge keeps the sand
+   pinned to the floor of the scene while the crest rises over the card. */
+.d16__frontImg {
+  flex: none;
+  height: var(--dune-height);
+  width: auto;
+  min-width: 100%;
+  max-width: none;
+  display: block;
+  margin-bottom: calc(var(--dune-drop) * -1);
+}
+
+
+/* generated photo layered over the SVG scene, which stays as the fallback */
+.d16__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* pushed in around the horizon band, then hazed back so it recedes */
+.d16__photo--back {
+  transform: scale(1.4);
+  transform-origin: 50% 32%;
+  filter: blur(1.5px) saturate(0.92) brightness(1.06);
+}
+
+
+.d16__card {
+  position: absolute;
+  top: 150px;
+  height: 248px;
+  left: 200px;
+  right: 200px;
+  z-index: 2;
+  padding: 40px 44px 26px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 30px 70px rgba(120, 62, 12, 0.22), 0 8px 20px rgba(120, 62, 12, 0.1);
+}
+
+/* ---------- top ---------- */
+
+.d16__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+}
+
+.d16__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #17181a;
+}
+
+.d16__brand svg {
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+.d16__cols {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 40px;
+}
+
+.d16__col h4 {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #17181a;
+}
+
+.d16__col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.d16__col a {
+  font-size: 13.5px;
+  letter-spacing: -0.005em;
+  color: #6b6f76;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.d16__col a:hover {
+  color: #f97316;
+}
+
+/* ---------- rule + bottom ---------- */
+
+.d16__rule {
+  display: block;
+  height: 1px;
+  margin: 30px 0 20px;
+  background: #ececec;
+}
+
+.d16__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.d16__copy {
+  font-size: 12.5px;
+  letter-spacing: -0.002em;
+  color: #8a8e95;
+}
+
+.d16__socials {
+  display: flex;
+  gap: 14px;
+}
+
+.d16__social {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: #17181a;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.d16__social:hover {
+  color: #f97316;
+  transform: translateY(-2px);
+}
+
+.d16__social svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ---------- narrow screens (added) ---------- */
+
+.d16m {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .d16-wide {
+    display: none;
+  }
+
+  .d16m {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 56px 16px 72vw;
+    background: #f4832a;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  .d16m__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 58% 100%;
+  }
+
+  .d16m__card {
+    position: relative;
+    padding: 26px 22px 20px;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 30px 70px rgba(120, 62, 12, 0.22), 0 8px 20px rgba(120, 62, 12, 0.1);
+  }
+
+  .d16m__card .d16__brand {
+    font-size: 22px;
+  }
+
+  .d16m__cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+    margin-top: 24px;
+  }
+
+  .d16m__cols .d16__col a,
+  .d16m__cols .d16__col h4 {
+    font-size: 15px;
+  }
+
+  .d16m__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+}

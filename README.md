@@ -1,4 +1,4 @@
-# Pavera Pavimentos
+# Arango Lands · Pavimentos
 
 Sitio en Vite + React 19 + TypeScript + Tailwind CSS v4, con el footer "Marble Desert".
 

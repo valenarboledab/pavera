@@ -1,0 +1,32 @@
+/* ---------------------------------------------------------------
+   Design tokens shared by every section.
+   
+   Its own file so a section can be dropped into a project that already
+   has its own global stylesheet: import this once, and nothing else in
+   the host's CSS has to be touched or overwritten.
+---------------------------------------------------------------- */
+:root {
+  /* Design canvas — every section is authored at exactly this size (16:9) */
+  --canvas-w: 1600px;
+  --canvas-h: 900px;
+
+  --ink: #0b0b0b;
+  --ink-2: #1a1a1a;
+  --muted: #8b8b8b;
+  --muted-2: #6f6f6f;
+  --panel: #f6f6f6;
+  --field: #ebebeb;
+  --field-2: #e4e4e4;
+  --line: #e6e6e6;
+  --page: #ffffff;
+
+  --r-pill: 999px;
+  --r-panel: 20px;
+  --r-field: 10px;
+  --r-media: 26px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

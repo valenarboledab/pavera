@@ -37,7 +37,7 @@ export function Hero() {
       <nav aria-label="Principal" className="flex flex-wrap items-center justify-between gap-4 px-[max(5vw,16px)] py-5">
         <a href="#inicio" className="flex items-center gap-[0.45em] font-reyard-display text-[22px] font-bold">
           <Mark className="size-[2em]" />
-          PAVERA
+          ARANGO LANDS
         </a>
         <ul className="hidden gap-7 md:flex">
           {nav.map(([label, href]) => (

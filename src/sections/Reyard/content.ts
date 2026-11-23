@@ -1,5 +1,5 @@
 export const brand = {
-  name: 'PAVERA',
+  name: 'ARANGO LANDS',
   blurb: 'Pavimentos bien hechos desde la base, para vías, patios y espacios que se usan todos los días',
   contact: 'Contáctanos:',
 };
@@ -17,7 +17,7 @@ export const socials = [
 
 export const columns = [
   {
-    title: 'Pavera',
+    title: 'Arango Lands',
     links: ['Inicio', 'Nosotros', 'Proyectos', 'Proceso', 'Cotizar', 'Términos', 'Privacidad'],
   },
   {
