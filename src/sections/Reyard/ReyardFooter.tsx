@@ -45,7 +45,7 @@ export function ReyardFooter() {
     <footer
       ref={ref}
       data-in={entered || undefined}
-      className="reyard-footer relative isolate flex flex-col overflow-hidden bg-linear-to-b from-reyard-sky to-reyard-sky-mid text-white lg:block lg:aspect-video lg:min-h-[42rem] lg:bg-reyard-sky"
+      className="reyard-footer relative isolate flex flex-col overflow-hidden bg-linear-to-b from-reyard-sky to-reyard-sky-mid text-white lg:block lg:aspect-video lg:min-h-[42rem] lg:min-w-0 lg:bg-reyard-sky"
     >
       {/* Scene */}
       <div className="reyard-scene relative order-last -mt-[6%] w-full lg:absolute lg:inset-0 lg:mt-0">
