@@ -199,7 +199,7 @@ export function Quote() {
             </label>
             <div aria-live="polite" className="rounded-2xl bg-reyard-sky p-5 text-white">
               <span className="text-[15px] text-white/85">Estimado referencial</span>
-              <b className="block font-reyard-display text-[clamp(26px,3vw,38px)] font-bold whitespace-nowrap">{est?.range ?? '—'}</b>
+              <b className="block font-reyard-display text-[clamp(24px,2.4vw,36px)] font-bold">{est?.range ?? '—'}</b>
               <span className="text-[15px] text-white/85">{est ? `${est.per} por m² aprox. (COP)` : 'Escribe el área'}</span>
             </div>
             <p className="text-[13px] text-slate-500">Precios de ejemplo: ajústalos en src/sections/Pavera/content.ts.</p>

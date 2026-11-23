@@ -18,14 +18,14 @@ export const socials = [
 export const columns = [
   {
     title: 'Pavera',
-    links: ['Inicio', 'Nosotros', 'Proyectos', 'Proceso', 'Cotizar', 'Términos de uso', 'Política de privacidad'],
+    links: ['Inicio', 'Nosotros', 'Proyectos', 'Proceso', 'Cotizar', 'Términos', 'Privacidad'],
   },
   {
     title: 'Servicios',
-    links: ['Asfalto', 'Concreto rígido', 'Adoquín', 'Concreto estampado', 'Sellado y demarcación', 'Mantenimiento', 'Ver todos'],
+    links: ['Asfalto', 'Concreto rígido', 'Adoquín', 'Concreto estampado', 'Sellado', 'Mantenimiento', 'Ver todos'],
   },
   {
     title: 'Recursos',
-    links: ['Soporte', 'Blog', 'Trabaja con nosotros', 'Precios'],
+    links: ['Soporte', 'Blog', 'Empleo', 'Precios'],
   },
 ];
