@@ -18,18 +18,21 @@ function Title({children, light}: {children: ReactNode; light?: boolean}) {
 export function Hero() {
   const reduced = useReducedMotion();
   return (
-    <header id="inicio" className="relative isolate flex min-h-[min(92vh,820px)] flex-col overflow-hidden bg-linear-to-b from-reyard-sky to-reyard-sky-mid text-white">
-      <video
-        src={VIDEO_SRC}
-        poster={POSTER_SRC}
-        muted
-        loop
-        playsInline
-        autoPlay={!reduced}
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 size-full object-cover object-bottom"
-      />
-      <div className="absolute inset-x-0 top-0 -z-10 h-2/3 bg-linear-to-b from-reyard-sky/70 to-transparent" />
+    <header id="inicio" className="relative isolate flex flex-col overflow-hidden bg-linear-to-b from-reyard-sky to-reyard-sky-mid text-white lg:min-h-[min(92vh,820px)]">
+      {/* Below lg the film is its own 16:9 block under the text (like the footer); on lg+ it fills the hero. */}
+      <div className="reyard-scene relative order-last -mt-[4%] w-full lg:absolute lg:inset-0 lg:-z-10 lg:mt-0">
+        <video
+          src={VIDEO_SRC}
+          poster={POSTER_SRC}
+          muted
+          loop
+          playsInline
+          autoPlay={!reduced}
+          aria-hidden="true"
+          className="absolute inset-0 size-full object-cover object-bottom"
+        />
+        <div className="absolute inset-x-0 top-0 hidden h-2/3 bg-linear-to-b from-reyard-sky/70 to-transparent lg:block" />
+      </div>
 
       <nav aria-label="Principal" className="flex flex-wrap items-center justify-between gap-4 px-[max(5vw,16px)] py-5">
         <a href="#inicio" className="flex items-center gap-[0.45em] font-reyard-display text-[22px] font-bold">
@@ -46,7 +49,7 @@ export function Hero() {
         <a href="#cotizar" className={`${btn} bg-white/25 backdrop-blur-sm`}>Pedir cotización</a>
       </nav>
 
-      <div className={`${wrap} w-full px-[max(5vw,16px)] pt-[clamp(56px,10vh,120px)]`}>
+      <div className={`${wrap} relative z-10 w-full px-[max(5vw,16px)] pt-[clamp(32px,10vh,120px)]`}>
         <h1 className={`${display} max-w-[14ch] text-[clamp(40px,5.6vw,76px)]`}>Pavimentos que duran más que la obra</h1>
         <p className="mt-5 mb-8 max-w-[44ch] text-[clamp(17px,1.4vw,20px)] text-white/90">
           Asfalto, concreto y adoquín para entradas, parqueaderos, vías privadas y plazas. Diseñamos la estructura, la construimos y la mantenemos.
@@ -130,7 +133,7 @@ export function Projects() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <article key={p.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-pavera-soft">
-              <div className="aspect-[4/3] bg-cover bg-bottom" style={{backgroundImage: `url(${POSTER_SRC})`, filter: `hue-rotate(${p.hue}deg)`}} />
+              <div className="aspect-[16/9] bg-cover bg-bottom sm:aspect-[4/3]" style={{backgroundImage: `url(${POSTER_SRC})`, filter: `hue-rotate(${p.hue}deg)`}} />
               <div className="p-5">
                 <h3 className="font-reyard-display text-xl font-bold">{p.title}</h3>
                 <p className="mt-1 text-[15px] text-slate-600">{p.text}</p>
