@@ -204,25 +204,31 @@
   }
 
   .d16m {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
-    padding: 56px 16px 72vw;
-    background: #f4832a;
+    padding: 48px 16px 0;
+    background: linear-gradient(#fbd9bd, #f8a967 60%, #e8690c);
     font-family: "Inter", system-ui, sans-serif;
   }
 
+  /* Below the card, cropped to the road and the truck, with the card
+     overlapping its top edge so it still floats in the dunes. */
   .d16m__photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    order: 2;
+    display: block;
+    width: calc(100% + 32px);
+    max-width: none;
+    margin: -90px -16px 0;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    object-position: 58% 100%;
+    object-position: 63% 88%;
   }
 
   .d16m__card {
     position: relative;
+    z-index: 1;
     padding: 26px 22px 20px;
     border-radius: 14px;
     background: #ffffff;
